@@ -1,12 +1,15 @@
-# Read about fixtures at
-# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+cr:
+  title: Code Rails
+  body: This is how i learned web development!
 
-one:
-  name: MyString
-  title: MyString
-  content: MyText
+http:
+  title: Intro to HTTP
+  body: It's all about the request-responsed cycle!
 
-two:
-  name: MyString
-  title: MyString
-  content: MyText
+cz:
+  title: Why Hello
+  body: This is where i would say something funny and/or witty
+
+cf:
+  title:  babies
+  body: are pretty cute
