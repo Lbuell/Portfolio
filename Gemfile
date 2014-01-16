@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "2.0.0"
+
 gem "coffee-rails", "~> 4.0.0"
 gem "jbuilder", "~> 1.2"
 gem "jquery-rails"
@@ -18,13 +20,12 @@ group :doc do
   gem "sdoc", require: false
 end
 
+group :production do
+  gem "rails_12factor"
+  gem "pg"
+end
+
 group :test do
   gem "minitest-rails-capybara"
+  gem "launchy"
 end
-
-group :production do
-	gem "rails_12factor"
-	gem "pg"
-end
-
-ruby "2.0.0"
