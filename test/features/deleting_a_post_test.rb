@@ -6,11 +6,12 @@ feature "Deleting a Post" do
     visit posts_path
 
     # When the delete link is clicked
-    page.find(:cr).click_on "Destroy"
+    page.find("tbody tr:last").click_on "Destroy"
 
     # Then the post is deleted
-    page.wont_have_content "Code Rails"
     page.must_have_content posts(:cf).title
-    page.must_have_content posts(:cz).title
-  end
+    page.must_have_content posts(:cf).body
+    end
 end
+
+

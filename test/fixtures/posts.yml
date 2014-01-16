@@ -2,6 +2,10 @@ cr:
   title: Code Rails
   body: This is how i learned web development!
 
+cf:
+  title: babies
+  body: are pretty cute
+
 http:
   title: Intro to HTTP
   body: It's all about the request-responsed cycle!
@@ -9,7 +13,3 @@ http:
 cz:
   title: Why Hello
   body: This is where i would say something funny and/or witty
-
-cf:
-  title:  babies
-  body: are pretty cute
