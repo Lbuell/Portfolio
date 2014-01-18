@@ -18,12 +18,12 @@
 // you try to trace through "use strict" call chains. (#13335)
 // Support: Firefox 18+
 //"use strict";
-
+var
   // A central reference to the root jQuery(document)
   rootjQuery,
 
   // The deferred used on DOM ready
-  readyList,b
+  readyList,
 
   // Support: IE9
   // For `typeof xmlNode.method` instead of `xmlNode.method !== undefined`
