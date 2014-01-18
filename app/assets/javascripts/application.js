@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require main
+//= require modernizr
 
 $(function(){ $(document).foundation(); });
