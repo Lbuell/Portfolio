@@ -15,5 +15,6 @@
 //= require foundation
 //= require main
 //= require modernizr
+//= require_tree .
 
 $(function(){ $(document).foundation(); });
