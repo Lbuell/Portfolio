@@ -1,45 +1,52 @@
-//  Init Foundation
+// START DOCUMENT
 $(document).foundation();
 
-$(document).ready(function(){
 
-	// Masthedad  full height
-	$('.this_is_home').css({height: screen.availHeight});
-	// To Top function 
-	$('.toTop').on('click',function(){
-		 $("html, body").animate({ scrollTop: 0 }, "slow");
-		  return false;
+
+// ACHOR LINK
+$(function() {
+	$('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+
+		|| location.hostname == this.hostname) {
+			var target = $(this.hash);
+
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+
+			if (target.length) {
+				$('html,body').animate({
+					scrollTop: target.offset().top
+				}, 1800);
+
+				return false;
+			}
+		}
 	});
-	// Portfolio
-	  $('ul#filter a').click(function(){
-	    // Remove class
-	    $('ul#filter .current').removeClass('current');
-	    // Add parent class
-	    $(this).parent().addClass('current');
-	    // find same class of menu
-	    var filterVal = $(this).text().toLowerCase().replace(' ','-');
-	    if(filterVal == 'all') {
-	      // If click all execute this
-	      $('ul#portfolio li').animate({
-	        opacity: 1
-	      },1000);
-	    }else{
-	      // Each all and filter values
-	      $('ul#portfolio li').each(function() {
-	        // Hide 
-	        if(!$(this).hasClass(filterVal)) {
-	          $(this).animate({
-	            opacity: 0.1
-	          },1000);
-	          // Show
-	        }else{
-	          $(this).animate({
-	            opacity: 1
-	          },1000);
-	        }
-	      });
-	    }
-	    return false;
-	  });
 });
 
+
+
+// SIMPLE PARALLAX EFFECT
+$(function() {
+	$('.portfolio').hover(
+		function () {
+			$(this).find('.label').stop().animate({bottom: 0}, 300, 'easeOutQuad');
+			$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+		},
+		function () {
+			$(this).find('.label').stop().animate({bottom: -60}, 200, 'easeInQuad');
+			$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+		}		
+	);	
+});
+
+
+
+// NICE SCROLL        
+$('html').niceScroll({
+	cursorcolor: '#5f717f',
+	cursorborder: '1px solid #5f717f',
+	cursoropacitymin: '1',
+	scrollspeed: '120',
+	zindex: '9'
+});
