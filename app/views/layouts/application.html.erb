@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "../assets/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
 
     <%= yield %>
-    <%= javascript_include_tag "jquery" %>
-    <%= javascript_include_tag "foundation.min" %>
-    <%= javascript_include_tag "main" %>
+    <%= javascript_include_tag "app" %>
   </body>
 </html>
