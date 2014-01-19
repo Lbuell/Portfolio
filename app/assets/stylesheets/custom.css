@@ -10,14 +10,14 @@
 
 
 /* Body */
- body {
+body {
     font-family:"Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     color: #777777;
 }
 
 
 /* Link */
- a {
+a   {
     color: #f04124;
     -webkit-transition: 0.25s;
     transition: 0.25s;
@@ -49,7 +49,8 @@ p {
 
 
 /* Selection */
- ::selection {
+ ::selection
+ {
     background-color: #777;
     color: #fff;
     text-shadow: none;
@@ -93,8 +94,8 @@ p {
 	margin: auto;
 	margin-right:10px;
 	margin-bottom: 20px;
-	-moz-transition:all 0.5s ease;
-	-webkit-transition:all 0.5s ease;
+	moz-transition:all 0.5s ease;
+	webkit-transition:all 0.5s ease;
 	transition:all 0.5s ease;
 }
 .tumb img{

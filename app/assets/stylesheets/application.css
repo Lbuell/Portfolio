@@ -273,7 +273,6 @@ input[type="url"]:focus, textarea:focus {
   border-color: #999;
 }
 
-
 /* Top bar */
 .top-bar ,.top-bar-section ul ,
 .top-bar-section ul li.active > a ,
@@ -281,7 +280,7 @@ input[type="url"]:focus, textarea:focus {
 .top-bar-section li a:not(.button),
 .top-bar-section li a:not(.button):hover ,
 .top-bar.expanded .title-area{
-  background: rgb(0,0,0);
+  background: rgb(0,0,0,0);
   background: rgba(255, 255, 255, 0);
   text-transform: uppercase;
   font-weight: 900;
