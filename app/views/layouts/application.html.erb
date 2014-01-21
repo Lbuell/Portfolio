@@ -6,14 +6,23 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Liam Buell" %></title>
 
+    <% flash.each do |key, value| %>
+        <div class="alert-box round <%= flash_class(key) %>">
+              <%= value %>
+        </div>
+    <% end %>
+
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "modernizr" %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
 
     <%= yield %>
+
     <%= javascript_include_tag "application" %>
+
   </body>
 </html>
