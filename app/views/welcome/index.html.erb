@@ -1,14 +1,11 @@
-    <!-- INTRO -->
-    <section class="intro">
+<% if current_user %>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<% elsif current_user.nil? %>
+    <li><%= link_to 'Sign In', new_user_session_path %></li>
+<% end %>
+<li><%= link_to 'Sign Up', new_user_registration_path %></li>    <!-- INTRO -
 
-        <div class="row">
 
-            <div class="medium-12 columns">
-
-                <h1>Designer &amp; Developer</h1>
-                <p>My name is Liam Buell, I am a 30yr old web developer from Seattle.</p>
-
-                <p><a href="#contact" class="button small alert radius">Drop Me A Line</a></p>
 
                 <!-- Start: Slider -->
                 <div class="csslider">

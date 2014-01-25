@@ -13,9 +13,9 @@ feature "
 
     page.must_have_content "Signed in successfully."
     #save_and_open_page
-    page.must_have_content "Sign out"
+    page.must_have_content "Sign Out"
     # When the sign out link is clicked
-    click_on "Sign out"
+    click_on "Sign Out"
 
     # Then the session should be destroyed
     page.must_have_content "Signed out successfully"

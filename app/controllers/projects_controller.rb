@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
   def index
     @projects = Project.all
   end
@@ -20,15 +20,15 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    set_project
+
   end
 
   def edit
-    set_project
+
   end
 
   def update
-    set_project
+
     if @project.update_attributes(project_params)
       redirect_to @project, notice: 'Project was successfully updated.'
     else
@@ -37,7 +37,6 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    set_project
 
     @project.destroy
 
@@ -47,7 +46,7 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:steps)
+    params.require(:project).permit(:name, :technologies_used)
   end
 
   def set_project
