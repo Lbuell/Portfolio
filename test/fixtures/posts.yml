@@ -1,15 +1,19 @@
 cr:
   title: Code Rails
   body: This is how i learned web development!
+  author: liam
 
 cf:
   title: babies
   body: are pretty cute
+  author: liam
 
 http:
   title: Intro to HTTP
   body: It's all about the request-responsed cycle!
+  author: liam
 
 cz:
   title: Why Hello
   body: This is where i would say something funny and/or witty
+  author: liam

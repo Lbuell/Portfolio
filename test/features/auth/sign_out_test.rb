@@ -12,7 +12,7 @@ feature "
     click_on "Sign in"
 
     page.must_have_content "Signed in successfully."
-    save_and_open_page
+    #save_and_open_page
     page.must_have_content "Sign out"
     # When the sign out link is clicked
     click_on "Sign out"

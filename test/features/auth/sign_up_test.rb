@@ -16,7 +16,7 @@ feature("
     fill_in "Password confirmation", with: "password11"
     click_on "Sign up"
 
-    save_and_open_page
+    #save_and_open_page
     page.must_have_content "Welcome! You have signed up successfully."
     page.wont_have_content "There was a problem with your sign up"
   end

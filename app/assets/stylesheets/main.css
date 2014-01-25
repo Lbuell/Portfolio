@@ -115,7 +115,7 @@ button,
 	}
 button.alert,
 .button.alert {
-	box-shadow: 0 4px #d92a0d;
+	box-shadow: 0 4px #000000;
 }
 	button.alert:hover,
 	button.alert:focus,
@@ -156,7 +156,7 @@ button.success,
 		margin-top: 0.625rem;
 	}
 		.top-bar .name h1 a {
-			color: #979797;
+			color: #FFF5F5;
 		}
 			.top-bar .name h1 a:hover {
 				text-decoration: none;
@@ -369,7 +369,7 @@ textarea {
 
 /* INTRO */
 .intro {
-	background-color: rgb(0,0,0);
+	background-color: rgb(0, 0, 0);
 	text-align: center;
 	padding: 4.375rem 0 5.938rem;
 }
