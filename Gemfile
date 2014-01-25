@@ -9,7 +9,7 @@ gem "rails", "4.0.2"
 gem "sass-rails", "~> 4.0.0"
 gem "turbolinks", "2.2.0"
 gem "uglifier", ">= 1.3.0"
-gem 'foundation-rails', github: "codefellows/foundation-rails"
+gem 'foundation-rails'
 gem 'devise', "3.2.2"
 gem "simplecov"
 

@@ -9,8 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= requite main.min.css
- *= require foundation
  *= require normalize
  *= require foundation_and_overrides
  *= require font-awesome.min
