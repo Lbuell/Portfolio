@@ -11,6 +11,7 @@ gem "turbolinks", "2.2.0"
 gem "uglifier", ">= 1.3.0"
 gem 'foundation-rails', github: "codefellows/foundation-rails"
 gem 'devise', "3.2.2"
+gem "simplecov"
 
 group :development do
   gem "sqlite3", "1.3.8"

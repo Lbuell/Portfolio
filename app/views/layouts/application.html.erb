@@ -1,104 +1,32 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <title>Liam Buell | </title>
-
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="../assets/normalize.css">
-
-    <!-- Foundation core CSS -->
-    <link rel="stylesheet" href="../assets/foundation.css">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="../assets/main.css">
-    <link rel="stylesheet" href="../assets/csslider.css">
-
-    <!-- Font Awesome core CSS -->
-    <link rel="stylesheet" href="../assets/font-awesome.min.css">
-
-    <!-- Favicons -->
-    <link rel="icon" href="../assets/favicon/favicon.ico" type="image/x-icon">
-    <!-- Modernizr Scripts -->
-    <script src="../assets/modernizr-2.6.2.min.js"></script>
-
-    <!-- Load JS here for greater good -->
-    <script src="../assets/jquery-1.10.2.min.js"></script>
-    <script src="../assets/foundation.js"></script>
-    <script src="../assets/plugin.js"></script>
-    <script src="../assets/main.js"></script>
-
-
-</head>
-
-<body id="top">
-
-
-
-
-    <!-- TOP BAR -->
-    <header class="mathead fixed">
-
-        <div class="row">
-
-            <nav class="top-bar" data-topbar>
-
-                <ul class="title-area">
-
-                    <!-- Title Area -->
-                    <li class="name">
-                        <h1><a href="../assets/index.html">Liam Buell</a></h1>
-                    </li>
-
-                    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-                    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-
-                </ul><!-- /.title-area -->
-
-                <section class="top-bar-section">
-
-                    <!-- Right Nav Section -->
-                    <ul class="right">
-
-                        <li><a href="#top">Home</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-
-                    </ul><!-- /.right -->
-
-                </section><!-- /.top-bar-section -->
-
-            </nav><!-- /.top-bar -->
-
-        </div><!-- /.row -->
-
-    </header><!-- /.masthead -->
-    <!-- TOP BAR -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "Liam Buell" %></title>
 
-    <% flash.each do |key, value| %>
-        <div class="alert-box round <%= flash_class(key) %>">
-              <%= value %>
-        </div>
-    <% end %>
-
     <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "modernizr" %>
     <%= csrf_meta_tags %>
-
   </head>
 
-  <body>
-
+  <body id="top">
+    <%= render "layouts/header" %>
+     <% if user_signed_in? %>
+         <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+     <% else %>
+       <p>
+         <%= link_to "Log in", new_user_session_path %>
+         <%= link_to "Sign up", new_user_registration_path %>
+       </p>
+     <% end %>
+    <% flash.each do |key, value| %>
+      <div class="alert-box round <%= flash_class(key) %>">
+        <%= value %>
+     </div>
+    <% end %>
     <%= yield %>
-
   </body>
 </html>
-
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

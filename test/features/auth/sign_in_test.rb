@@ -4,7 +4,7 @@ feature "user sign in" do
   scenario "user signs in" do
     # Given an existing user
     visit root_path
-    click_on "Sign In"
+    click_on "Log in"
 
     # When the user creates a new session
     fill_in "Email", with: users(:liam).email
