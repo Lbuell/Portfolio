@@ -5,7 +5,7 @@
         <ul class="title-area">
           <!-- Title Area -->
           <li class="name">
-            <h1><a href="./index.html">Liam Buell</a></h1>
+            <h1><a href="/">Liam Buell</a></h1>
           </li>
           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -14,10 +14,16 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li><a href="#top">Home</a></li>
-            <li><a href="#top">Blog</a></li>
+            <li><%= link_to "BLOG", posts_path %></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <% if user_signed_in? %>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
           </ul><!-- /.right -->
         </section><!-- /.top-bar-section -->
       </nav><!-- /.top-bar -->
