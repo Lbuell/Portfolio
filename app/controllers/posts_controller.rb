@@ -11,55 +11,81 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @posts = Post.all
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @post }
+    end
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+     authorize @post
+    @posts = Post.all
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @post }
+    end
   end
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
+    if current_user != @post.author && current_user.role != "editor"
+      redirect_to posts_url, alert: 'That shit aint yours!'
+    end
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
-    respond_to do |format|
+     authorize @post
+     respond_to do |format|
       if @post.save
         current_user.posts << @post
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to posts_path, notice: 'You did it!' }
         format.json { render action: 'show', status: :created, location: @post }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to posts_path, notice: 'Not sure what you were thinking there buddy' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+     end
   end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
+     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to @post, notice: 'Holy crap it's updated! }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
-    end
+     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
+  def publish
+    @post = Post.find(params[:id])
+    @post.published = true
+    @post.save
+    redirect_to posts_url, notice: 'Well done, you did it!'
+  end
+
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :no_content }
+    @post = Post.find(params[:id])
+    if current_user != @post.author && current_user.role != "editor"
+      redirect_to posts_url, alert: 'Not yours sucka!'
+      else
+        respond_to do |format|
+        format.html { redirect_to posts_url }
+        format.json { head :no_content }
+      end
     end
   end
 

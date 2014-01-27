@@ -1,19 +1,36 @@
+liam:
+  title: Code Rails
+  body: This is how i learned web development!
+  published: true
+liam2:
+  title: Code Rails
+  body: This is how i learned web development!
+  published: false
+dude:
+  title: Code Rails
+  body: This is how i learned web development!
+  author: dude
+  published: true
 cr:
   title: Code Rails
   body: This is how i learned web development!
-  author: liam
+  author: dude
+  published: false
 
 cf:
   title: babies
   body: are pretty cute
   author: liam
+  published: true
 
 http:
   title: Intro to HTTP
   body: It's all about the request-responsed cycle!
   author: liam
+  published: true
 
 cz:
   title: Why Hello
   body: This is where i would say something funny and/or witty
   author: liam
+  published: true
