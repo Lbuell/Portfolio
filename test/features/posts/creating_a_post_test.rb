@@ -13,7 +13,7 @@ feature "Creating a post" do
 
     click_on "Create Post"
 
-    page.text.must_include "Post was successfully created."
+    page.text.must_include "You did it!"
     page.text.must_include posts(:cr).title
     #page.text.must_include users(:liam).email
 
@@ -33,7 +33,7 @@ feature "Creating a post" do
 
     click_on "Create Post"
 
-    page.text.must_include "Post was successfully created"
+    page.text.must_include "You did it!"
     page.text.must_include posts(:liam).title
   end
 

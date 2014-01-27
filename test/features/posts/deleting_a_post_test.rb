@@ -23,7 +23,7 @@ feature "Deleting a Post" do
 
      page.find("tbody tr:first").click_on "Edit"
 
-     page.must_have_content "OH HELL NO"
+     page.must_have_content "That shit aint yours!"
 
      end
 

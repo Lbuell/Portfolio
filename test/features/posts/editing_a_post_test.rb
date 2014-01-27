@@ -15,7 +15,7 @@ feature "Editing a Post" do
      fill_in "Title", with: "Dude."
     click_on "Update Post"
     # Then the post is updated
-     page.text.must_include "Post was successfully updated"
+     page.text.must_include "Holy crap updated!"
     page.text.must_include "Dude."
   end
 
