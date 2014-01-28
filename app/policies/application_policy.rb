@@ -1,5 +1,5 @@
 class ApplicationPolicy
-  attr_reader :user, :post, :project
+  attr_reader :user, :post
   def initialize(user, post)
     raise Pundit::NotAuthorizedError, "must be logged in" unless user
     @user = user
