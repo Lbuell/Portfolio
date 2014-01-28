@@ -1,4 +1,11 @@
 <h2><%= @project.name %></h2>
 <p>Technologies used: <%= @project.technologies_used %>
 
+
+<%= render "comments/comments" %>
+<% if current_user %>
+<h2>Comments</h2>
+
+<%= render "comments/form" %>
 <p><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>

@@ -3,9 +3,17 @@ liam:
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   role: editor
 
-
 dude:
   email: liambuell@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  role: author
+
+editor:
+  email: hokouri2@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  role: editor
+author:
+  email: hokouri22@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
   role: author
 

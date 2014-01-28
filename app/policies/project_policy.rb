@@ -1,9 +1,9 @@
-class PostPolicy < ApplicationPolicy
-  attr_reader :user, :post, :project
+class ProjectPolicy < ApplicationPolicy
+  attr_reader :user, :project
 
-  def initialize(user, post)
+  def initialize(user, project)
     @user = user
-    @post = post
+    @project = project
   end
 
   def create?
@@ -18,8 +18,7 @@ class PostPolicy < ApplicationPolicy
     user.editor?
   end
 
-  def publish?
+  def approve?
     @user.editor?
   end
-
 end

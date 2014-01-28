@@ -1,4 +1,190 @@
-<h2>My Portfolio</h2>
+
+<!doctype html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" data-useragent="Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Feed</title>
+
+
+    <meta name="description" content="Documentation and reference library for ZURB Foundation. JavaScript, CSS, components, grid and more." />
+
+    <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
+    <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
+
+    <link rel="stylesheet" href="../assets/css/templates/foundation.css" />
+    <script src="../assets/js/modernizr.js"></script>
+  </head>
+  <body>
+
+
+ <!-- Header and Nav -->
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="panel">
+        <h1>My Portfolio</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Header and Nav -->
+
+
+  <div class="row">
+
+
+
+ <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 columns ">
+      <div class="panel">
+        <a href="#"><img src="../assets/1.jpg" alt=""></a>
+        <h5><a href="#">Liam Buell</a></h5>
+          <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+          <section class="section">
+            <h5 class="title"><a href="#">Code</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Photography</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Climbing</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Carpentry</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Ninja Skillz</a></h5>
+          </section>
+          <section class="section">
+            <h5 class="title"><a href="#">Musings</a></h5>
+          </section>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Feed -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-6 columns">
+				<% @projects.each do |project| %>
+      <!-- Feed Entry -->
+      <div class="row">
+        <div class="large-2 columns small-3"><img src="../assets/2.jpg" alt=""></div>
+        <div class="large-10 columns">
+    		<h3><%= project.name %></h3>
+    		<p><%= project.technologies_used %></p>
+          <p><strong>Liam Says:</strong> This thing is amazing! however did you do it?!</p>
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+
+
+          <h6>2 Comments</h6>
+
+          <div class="row">
+            <div class="large-2 columns small-3"><img src="../assets/3.jpg" alt=""></div>
+            <div class="large-10 columns"><p>Wow Liam, I am so impressed how fast you are learning this stuff!</p></div>
+          </div>
+          <div class="row">
+            <div class="large-2 columns small-3"><img src="../assets/4.jpg" alt=""></div>
+            <div class="large-10 columns"><p>You are such a nerd!  nice work!</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- End Feed Entry -->
+    		<div class="nav">
+      	<%= link_to 'Show', project %> |
+      	<%= link_to 'Edit', edit_project_path(project) %> |
+      	<%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    		</div>
+				<% end %>
+
+      <hr />
+
+      <!-- Feed Entry -->
+      <div class="row">
+        <div class="large-2 columns small-3"><img src="../assets/7.jpg" alt=""></div>
+        <div class="large-10 columns">
+          <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Feed Entry -->
+
+      <hr />
+
+      <!-- Feed Entry -->
+      <div class="row">
+        <div class="large-2 columns small-3"><img src="../assets/8.jpg" alt=""></div>
+        <div class="large-10 columns">
+          <p><strong>Some Person said:</strong> Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong.</p>
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+
+
+          <h6>2 Comments</h6>
+          <div class="row">
+            <div class="large-2 columns small-3"><img src="../assets/6.jpg" alt=""></div>
+            <div class="large-10 columns"><p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- End Feed Entry -->
+
+    </div>
+
+    <!-- Right Sidebar -->
+    <!-- On small devices this column is hidden -->
+    <aside class="large-3 columns hide-for-small">
+      <p><img src="../assets/5.jpg" alt=""></p>
+      <p><img src="../assets/8.jpg" alt=""></p>
+    </aside>
+
+  </div>
+
+
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-5 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-7 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+            <li><a href="#">Section 5</a></li>
+            <li><a href="#">Section 6</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/templates/foundation.js"></script>
+    <script>
+      $(document).foundation();
+
+      var doc = document.documentElement;
+      doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+  </body>
+</html>
+
 
 <% @projects.each do |project| %>
   <div class="project" id="<%= dom_id(project) %>">

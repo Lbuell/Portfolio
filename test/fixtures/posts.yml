@@ -6,6 +6,7 @@ liam2:
   title: Code Rails
   body: This is how i learned web development!
   published: false
+
 dude:
   title: Code Rails
   body: This is how i learned web development!
@@ -16,7 +17,11 @@ cr:
   body: This is how i learned web development!
   author: dude
   published: false
-
+cl:
+  title: babies
+  body: are pretty cute
+  author: editor
+  published: true
 cf:
   title: babies
   body: are pretty cute

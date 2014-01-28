@@ -12,3 +12,9 @@
 <% end %>
 <%= link_to 'Back', posts_path %>
 <p><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+
+<h2>Comments</h2>
+
+<%= render "comments/comments" %>
+<%= render "comments/form" %>

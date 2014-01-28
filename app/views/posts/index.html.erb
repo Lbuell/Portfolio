@@ -29,12 +29,15 @@
       <h1>Blog <small>This is my blog. It's awesome.</small></h1>
       <hr />
     </div>
+    <% if user_signed_in? %>
+      <li><%= link_to "New Blog Post", new_post_path %></li>
+      <% end %>
   </div>
-
   <div class="row">
 
     <!-- Main Blog Content -->
     <div class="large-9 columns" role="content">
+
 
       <article>
         <tbody>
@@ -77,9 +80,12 @@
 
         <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
 
+
       </article>
 
       <hr />
+
+
 
       <article>
 

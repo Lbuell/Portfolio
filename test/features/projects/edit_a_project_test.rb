@@ -2,10 +2,11 @@ require "test_helper"
 
 feature "As the site owner, I want to edit a project so that I can correct typos" do
   scenario "editing an existing project" do
+    sign_in(:liam)
     # Given an existing project
+    save_and_open_page
     visit edit_project_path(projects(:portfolio))
 
-    # When I make changes
     fill_in "Name", with: "My Rad Portfolio"
     click_on "Update Project"
 
@@ -16,7 +17,7 @@ feature "As the site owner, I want to edit a project so that I can correct typos
   end
 
   scenario "incorrectly editing an existing project" do
-    # Given an existing project
+    sign_in(:liam)
     visit edit_project_path(projects(:portfolio))
 
     # When I submit invalid changes

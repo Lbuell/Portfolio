@@ -1,7 +1,13 @@
 Portfolio::Application.routes.draw do
+
   devise_for :users
-  resources :posts
-  resources :projects
+
+  resources :posts do
+    resources :comments
+  end
+  resources :projects do
+    resources :comments
+  end
 
   get "sessions/new"
   get 'signup', to: 'users#new', as: 'signup'

@@ -2,6 +2,7 @@ require "test_helper"
 
 feature "As the site owner, I want to delete a portfolio item" do
   scenario "An item I don't want exists" do
+  	sign_in(:liam)
     # Given an existing project (loaded from fixtures)
     # When I visit /projects/:id and click Delete
     visit project_path(projects(:freelance))

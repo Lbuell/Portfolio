@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  #before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @posts = Post.all
+    @commentable = @post
+    @comments = @commentable.comments
+    @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
@@ -49,6 +52,7 @@ class PostsController < ApplicationController
         current_user.posts << @post
         format.html { redirect_to posts_path, notice: 'You did it!' }
         format.json { render action: 'show', status: :created, location: @post }
+        current_user.posts << @post
       else
         format.html { redirect_to posts_path, notice: 'Not sure what you were thinking there buddy' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -59,8 +63,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+     @post = Post.find(params[:id])
      respond_to do |format|
-      if @post.update(post_params)
+      if @post.update_attributes(post_params)
         format.html { redirect_to @post, notice: 'Holy crap updated!' }
         format.json { head :no_content }
       else
@@ -97,6 +102,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :published, :author_id)
     end
 end
