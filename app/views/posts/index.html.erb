@@ -68,20 +68,33 @@
         <div class="row">
           <div class="large-6 columns">
             <p><%= post.body %></p>
-            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+            <p>My first foray into custom Zurb Foundation templates was surprisingly painful, My Hope is that this will help anyone who finds it have a better experience in installing  custom foundation theme!.</p>
         <% end %>
           </div>
           <div class="large-6 columns">
-            <%= image_tag ("6.jpg") %>
+            <img src="http://foundation.zurb.com/assets/img/learn/features/getting-started.svg">
           </div>
         </div>
 
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+        <p>First of all I want to say that you should really consider just getting a basic HTML template from Zurbs main website,  since those are very easy to implement and then you can customize from there quite easily.</p>
 
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+        <p>If you do find yourself just in love with a theme someone has made and want to implement it on top of your rails app, read on!.</p>
+
+        <p>Basically it all comes down to asset placement.  Your custom theme will most likely have a different file structure than your rails app does.  You need to make sure that all your JS and CS files all go into their applicable assets directory.  all your fonts and images seem to do the best if you place them in the public/vendor folder, especially for heroku deployment</p>
+
+        <p>Next you need to go through all the html and make sure that all the assets the custom them are looking for actually point to the right locations.  Usually the hrefs for the icons and fonts are in the css files so make sure you search or all img and link tags and point them to where you have placed the files in your folder structure.</p>
+
+        <p>Only now would I recommend installing the foundation gem and installing foundation in the command line, this is because you have customized css files and you dont want to end up with default foundation css files, make sure when you are installing that you dont overwrite any existing files.</p>
+
+        <p>That should get you pretty well setup, I would only suggest that you clean up your views, make a partial for the header and have as little in the application.html.erb as possible, and as much in the applicable views.  If you're still having issues getting the JS or CSS to load properly, especially when you are pushing to heroku, you will probably want to take out the links in your html files to any CSS/JS assets and add them to your manifest instead, this should resolve any other issues.  If you're still running into weird issues you may have ended up with a Custom theme who's CSS isn't compiling correctly in production and you will be getting arrors that don't! make much sense!</p>
+
+        <p>I Hope this helped you install your beautiful custom theme!  if you're still having trouble you are welcome to add a comment below and I will try to help!  Or you could just use Twitter Bootstrap ;)</p>
 
 
 
+          <div class="large-6 columns">
+            <img src="http://premium.wpmudev.org/blog/wp-content/uploads/2013/01/blue-yeti1.png">
+          </div>
 
       </article>
 
@@ -130,7 +143,7 @@
 
       <div class="panel">
         <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
+        <p>What Happens when a tiger meats a lion and they face off against a pack of wild tuna?  find out here!</p>
         <a href="#">Read More &rarr;</a>
       </div>
 
