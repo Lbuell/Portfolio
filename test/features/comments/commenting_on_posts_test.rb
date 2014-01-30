@@ -41,9 +41,9 @@ feature "Commenting on projects" do
     #save_and_open_page
     fill_in "comment_content", with: "You rules!"
     click_on "Create Comment"
-     #save_and_open_page
     page.text.must_include "Comment created."
     click_on "Approve"
+     save_and_open_page
     page.text.must_include "Comment approved."
   end
 end

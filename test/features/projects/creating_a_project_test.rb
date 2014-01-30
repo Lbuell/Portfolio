@@ -9,7 +9,7 @@ feature "As the site owner, I want to add a portfolio item so that I can show of
     fill_in "Name", with: "Code Fellows Portfolio"
     fill_in "Technologies used", with: "Rails, Ruby, Bootstrap, HTML5, CSS3"
     click_on "Create Project"
-    save_and_open_page
+    #save_and_open_page
     page.text.must_include "You did it!"
     page.text.must_include "Ninja"
   end

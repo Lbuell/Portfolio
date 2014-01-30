@@ -63,7 +63,7 @@ feature "Creating a post" do
 
     check "Published"
     click_on "Create Post"
-    save_and_open_page
+    #save_and_open_page
 
     # Then the published post should be shown
     page.text.must_include "You did it!"

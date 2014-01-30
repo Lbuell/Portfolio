@@ -12,12 +12,16 @@ gem "sass-rails", "~> 4.0.0"
 gem "turbolinks", "2.2.0"
 gem "uglifier", ">= 1.3.0"
 gem 'foundation-rails'
-gem 'devise', "3.2.2"
+gem 'devise'
 gem "simplecov"
 gem "pundit"
+gem 'omniauth-twitter'
+gem 'figaro'
+gem 'quiet_assets'
 
-group :development do
+group :development, :test do
   gem "sqlite3", "1.3.8"
+  gem 'pry-rails'
 end
 
 group :doc do

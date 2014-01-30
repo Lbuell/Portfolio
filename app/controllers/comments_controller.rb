@@ -2,16 +2,45 @@ class CommentsController < ApplicationController
   before_filter :load_commentable
 
   def index
+    @post = Post.find(params[:post_id])
+    @project = Project.find(project_params)
     @comments = @commentable.comments
-    authorize @comment
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @comments }
+    end
+  end
+
+  def show
+    @post = Post.find(params[:post_id])
+    @project = Project.find(project_params)
+    @comment = @commentable.comments.find(params[:id])
+    #authorize @comment
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @comment }
+    end
   end
 
   def new
+    @post = Post.find(params[:post_id])
     @comment = @commentable.comments.new
-    #authorize @comment
+    authorize @comment
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @comment }
+    end
   end
 
-  def create
+  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @commentable.comments.find(params[:id])
+    authorize @comment
+  end
+
+   def create
     @comment = @commentable.comments.new(comment_params)
     if @comment.save
       redirect_to @commentable, notice: "Comment created."
@@ -19,6 +48,7 @@ class CommentsController < ApplicationController
       render :new
     end
   end
+
 
   def update
     @comment = Comment.find(params[:id])
@@ -52,6 +82,6 @@ private
 
   def comment_params
     params.require(:comment).permit(:content, :author, :approved,
-     :author_email, :commentable_id)
+     :author_email, :commentable_id, :author)
   end
 end

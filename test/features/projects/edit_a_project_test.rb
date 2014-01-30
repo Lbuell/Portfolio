@@ -4,7 +4,7 @@ feature "As the site owner, I want to edit a project so that I can correct typos
   scenario "editing an existing project" do
     sign_in(:liam)
     # Given an existing project
-    save_and_open_page
+    #save_and_open_page
     visit edit_project_path(projects(:portfolio))
 
     fill_in "Name", with: "My Rad Portfolio"
