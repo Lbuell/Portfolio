@@ -41,60 +41,65 @@
 
       <article>
         <tbody>
-          <% @posts.each do |post| %>
+    <% @posts.each do |post| %>
             <tr id="<%= dom_id(post) %>">
 
-                <p>
+                 <p>
                  <% if (current_user && policy(post).publish?) || post.published || (current_user && current_user == post.author) %>
-                <% end %>
-                <% if (current_user && policy(post).update?) %>
+
+                 <% elsif (current_user && policy(post).update?) %>
                  <%= link_to 'Edit', edit_post_path(post) %>
-                <% end %>
-                <% if (current_user && policy(post).destroy?) %>
-                | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-                <% if (current_user && policy(post).update?) && !post.published %>
+
+                 <% elsif (current_user && policy(post).destroy?) %>
+                 | <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                 <% else (current_user && policy(post).update?) && !post.published %>
                   | <%= link_to 'Publish', edit_post_path(post) %>
-                <% end %>
-          <% end %>
+                 <% end %>
                 </p>
         </tbody>
-        <% @posts.each do |post| %>
+
         <h3><%= link_to post.title, post %></h3>
         <h6>Written by <a href="#">Liam Buell</a> on Jan 24th, 2014.</h6>
             <% unless post.published %>
-            <p><strong>Unpublished</strong></p>
-            <% end %>
+              <p><strong>Unpublished</strong></p>
+              <% end %>
         <div class="row">
           <div class="large-6 columns">
             <p><%= post.body %></p>
-            <p>My first foray into custom Zurb Foundation templates was surprisingly painful, so my hope is that this blog post will help anyone who finds it have a better experience installing a custom Foundation theme!.</p>
-        <% end %>
+            <p>My first foray into custom Zurb Foundation templates was surprisingly painful, My Hope is that this will help anyone who finds it have a better experience in installing  custom foundation theme!.</p>
           </div>
           <div class="large-6 columns">
             <img src="http://foundation.zurb.com/assets/img/learn/features/getting-started.svg">
           </div>
         </div>
+        <% end %>
+        <p>First of all I want to say that you should really consider just getting a basic HTML template from Zurbs main website,  since those are very easy to implement and then you can customize from there quite easily.</p>
 
-        <p>First of all, you should really consider getting a basic HTML template from Zurb's main website,  since those are very easy to implement and you can customize them quite easily.</p>
+        <p>If you do find yourself just in love with a theme someone has made and want to implement it on top of your rails app, read on!.</p>
 
-        <p>But if you do find yourself in love with a theme someone has made and want to implement it on top of your rails app, read on!.</p>
+        <p>Basically it all comes down to asset placement.  Your custom theme will most likely have a different file structure than your rails app does.  You need to make sure that all your JS and CS files all go into their applicable assets directory.  all your fonts and images seem to do the best if you place them in the public/vendor folder, especially for heroku deployment</p>
 
-        <p>Basically it all comes down to asset placement.  Your custom theme will most likely have a different file structure than your rails app does.  You need to make sure that all your JS and CSS files all go into their applicable assets directory.  All your fonts and images seem to do the best if you place them in the public/vendor folder, especially for deployment with Heroku.</p>
+        <p>Next you need to go through all the html and make sure that all the assets the custom them are looking for actually point to the right locations.  Usually the hrefs for the icons and fonts are in the css files so make sure you search or all img and link tags and point them to where you have placed the files in your folder structure.</p>
 
-        <p>Next you need to go through all the HTML and make sure that the assets the custom theme is looking for actually point to the right locations.  Usually the hrefs for the icons and fonts are in the CSS files so make sure you search or all img and link tags and point them to where you have placed the files in your file structure.</p>
+        <p>Only now would I recommend installing the foundation gem and installing foundation in the command line, this is because you have customized css files and you dont want to end up with default foundation css files, make sure when you are installing that you dont overwrite any existing files.</p>
 
-        <p>Only now would I recommend installing the Foundation gem and installing Foundation in the command line, because you have customized css files and you don't want to end up with default foundation css files. Make sure when you are installing that you don't overwrite any existing files.</p>
+        <p>That should get you pretty well setup, I would only suggest that you clean up your views, make a partial for the header and have as little in the application.html.erb as possible, and as much in the applicable views.  If you're still having issues getting the JS or CSS to load properly, especially when you are pushing to heroku, you will probably want to take out the links in your html files to any CSS/JS assets and add them to your manifest instead, this should resolve any other issues.  If you're still running into weird issues you may have ended up with a Custom theme who's CSS isn't compiling correctly in production and you will be getting arrors that don't! make much sense!</p>
 
-        <p>That should get you pretty well set up, from here I would suggest that you clean up your views, make a partial for the header and have as little in the application.html.erb as possible, and as much in the applicable views.  If you're still having issues getting the JS or CSS to load properly, especially when you are pushing to Heroku, you will probably want to take out the links in your HTML files to any CSS/JS assets and add them to your manifest instead, this should resolve any other issues.  If you're still running into weird issues you may have ended up with a custom theme who's CSS isn't compiling correctly in production and you will be getting errors that don't make much sense!</p>
-
-        <p>I hope this has helped you install your beautiful custom theme!  If you're still having trouble you are welcome to add a comment below and I will try to help!  Or you could just use Twitter Bootstrap ;)</p>
-
+        <p>I Hope this helped you install your beautiful custom theme!  if you're still having trouble you are welcome to add a comment below and I will try to help!  Or you could just use Twitter Bootstrap ;)</p>
 
 
           <div class="large-6 columns">
             <img src="http://premium.wpmudev.org/blog/wp-content/uploads/2013/01/blue-yeti1.png">
           </div>
+          <div id="comments">
+          <% @posts.each do |post| %>
+          <% post.comments.each do |comment| %>
+          <div class="comment">
+          <%= simple_format comment.content %>
+            <% end %>
+          <% end %>
+
 
       </article>
 
