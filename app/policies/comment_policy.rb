@@ -1,21 +1,29 @@
 class CommentPolicy < ApplicationPolicy
-        attr_reader :user, :comment
+  attr_reader :user, :comment
 
 
-        def update?
-                user.author? or user.editor?
-        end
+  def update?
+    user.author? or user.editor?
+  end
 
-        def destroy?
-                user.editor?
-        end
+  def create
 
-        def publish?
-                user.editor?
-        end
-        def approve?
+  return unless @user.present?
+    @user.editor? or @user.author?
+  end
 
-                user.editor?
-        end
+  def destroy?
+    return unless @user.present?
+    user.editor?
+  end
+
+  def publish?
+    return unless @user.present?
+    user.editor?
+  end
+  def approve?
+    return unless @user.present?
+    user.editor?
+  end
 
 end
