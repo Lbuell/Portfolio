@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :load_commentable
 
   def index
@@ -40,7 +41,7 @@ class CommentsController < ApplicationController
     authorize @comment
   end
 
-   def create
+  def create
     @comment = @commentable.comments.new(comment_params)
     if @comment.save
       redirect_to @commentable, notice: "Comment created."

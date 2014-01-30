@@ -43,7 +43,7 @@ feature "Commenting on projects" do
     click_on "Create Comment"
     page.text.must_include "Comment created."
     click_on "Approve"
-     save_and_open_page
+     #save_and_open_page
     page.text.must_include "Comment approved."
   end
 end
