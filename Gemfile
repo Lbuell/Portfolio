@@ -19,6 +19,7 @@ gem 'omniauth-twitter'
 gem 'figaro'
 gem 'quiet_assets'
 
+
 group :development, :test do
   gem "sqlite3", "1.3.8"
   gem 'pry-rails'

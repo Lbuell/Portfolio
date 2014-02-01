@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @project = Project.find(project_params)
     @comments = @commentable.comments
-
+    authorize @comment
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @comments }
@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @comments = @commentable.comments
     @post = Post.find(params[:post_id])
     @project = Project.find(project_params)
     @comment = @commentable.comments.find(params[:id])
