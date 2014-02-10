@@ -1,4 +1,3 @@
-
 # Personal Portfolio App
 <!-- If you'd like to use a logo instead uncomment this code and remove the text above this line
 
@@ -51,4 +50,4 @@ send us a pull request.
 
 ## License
 
-MIT  http://buell.mit-license.org
+None
