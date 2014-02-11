@@ -1,0 +1,10 @@
+
+  <div class="project" id="<%= dom_id(project) %>">
+    <h3><%= project.name %></h3>
+    <p><%= project.technologies_used %></p>
+
+    <div class="nav">
+      <%= link_to 'Edit', edit_project_path(project), remote: true, id: :edit_project %> |
+      <%= link_to 'Destroy', project, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
