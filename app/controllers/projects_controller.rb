@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  #before_action :set_project, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
@@ -15,15 +15,14 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     authorize @project
-    respond_to do |format|
-      if @project.save
-        #current_user.projects << @project
-        format.html { redirect_to projects_path, notice: 'You did it!' }
-        format.json { render action: 'show', status: :created, location: @project }
-      else
-        format.html { redirect_to projects_path, notice: 'Not sure what you were thinking there buddy' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+    if @project.save
+      flash[:notice] = "Project Added!"
+      respond_to do |format|
+        format.html { redirect_to @project }
+        format.js
       end
+    else
+      render :new
     end
   end
 
@@ -35,15 +34,18 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
     authorize @project
-
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     @project = Project.find(params[:id])
     authorize @project
 
-    if @project.update_attributes(project_params)
+    if @project.update(project_params)
       flash[:notice] = "Project was successfully updated."
       respond_to do |format|
         format.html { redirect_to projects_url }
@@ -68,7 +70,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to projects_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 
