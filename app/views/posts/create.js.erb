@@ -1,0 +1,4 @@
+$('#new_link').fadeIn()
+$('#new_post').fadeOut().remove()
+// show
+$('.post:last').after('<%= j render(@post) %>')

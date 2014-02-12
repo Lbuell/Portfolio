@@ -11,7 +11,7 @@
 <% if (current_user && policy(@post).update?) %>
 <% end %>
 <%= link_to 'Back', posts_path %>
-<p><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to 'Destroy', @project, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></p>
 
 
 <h2>Comments</h2>

@@ -17,6 +17,7 @@
 //= require tweets
 //= require main
 //= require turbolinks
+//= require browser_timezone_rails/application.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
@@ -31,4 +32,8 @@ jQuery.fn.submitOnCheck = function() {
 
 $(function() {
   $('.edit_project').submitOnCheck();
+});
+
+$(function() {
+  $('.edit_post').submitOnCheck();
 });

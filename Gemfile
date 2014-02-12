@@ -18,6 +18,9 @@ gem "pundit"
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'quiet_assets'
+gem 'browser-timezone-rails'
+gem 'globalize', '~> 4.0.0'
+gem 'simple_form'
 
 
 group :development, :test do
