@@ -22,10 +22,7 @@ Fork and clone the repo and push it to heroku or your own server setup:
 
 ## Information
 
-Screenshots of your application below:
-
-TODO
-
+![Alt text](https://www.dropbox.com/s/x565sx06sgnuwmb/Screenshot%20from%202014-02-12%2014%3A38%3A17.pngraw=true)
 
 ### Known Issues
 
