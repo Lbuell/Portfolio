@@ -13,8 +13,8 @@
     <meta name="author" content="ZURB, inc. ZURB network also includes zurb.com" />
     <meta name="copyright" content="ZURB, inc. Copyright (c) 2013" />
 
-    <link rel="stylesheet" href="../assets/css/templates/foundation.css" />
-    <script src="../assets/js/modernizr.js"></script>
+    <link rel="stylesheet" href="../assets/foundation.css" />
+    <script src="../assets/modernizr.js"></script>
   </head>
   <body>
 
@@ -69,8 +69,8 @@
     <!-- Main Feed -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
     <div class="large-6 columns">
-        <%= link_to 'New project', new_project_path, remote: true, id: :new_link %>
 
+        <%= link_to 'New project', new_project_path, remote: true, id: :new_link %>
 
         <p><%= render @projects %></p>
 
@@ -171,8 +171,8 @@
       </div>
     </div>
   </footer>
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/templates/foundation.js"></script>
+    <script src="../assets/jquery.js"></script>
+    <script src="../assets/foundation.js"></script>
     <script>
       $(document).foundation();
 

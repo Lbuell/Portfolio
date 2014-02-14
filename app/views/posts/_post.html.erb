@@ -1,30 +1,39 @@
-    <tbody>
 
-            <tr id="<%= dom_id(post) %>">
+   <li class="post" id="<%= dom_id(post) %>">
+    <h3><%= post.title %></h3>
 
-        <h3><%= link_to post.title, post %></h3>
+    <h6>Written by <a href="#">Liam Buell</a> </h6>
 
-        <h6>Written by <a href="#">Liam Buell</a> </h6>
+    <p>
+    <% if (current_user && policy(post).publish?) || post.published || (current_user && current_user == post.author) %>
 
-                 <p>
-                 <% if (current_user && policy(post).publish?) || post.published || (current_user && current_user == post.author) %>
+    <% elsif (current_user && policy(post).update?) %>
+    <%= link_to 'Edit', edit_post_path(post) %>
 
-                 <% elsif (current_user && policy(post).update?) %>
-                 <%= link_to 'Edit', edit_post_path(post) %>
+    <% elsif (current_user && policy(post).destroy?) %>
+     | <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
 
-                 <% elsif (current_user && policy(post).destroy?) %>
-                 | <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+    <% else (current_user && policy(post).update?) && !post.published %>
+          | <%= link_to 'Publish', edit_post_path(post), remote: true %>
+    <% end %>
+    </p>
 
-                 <% else (current_user && policy(post).update?) && !post.published %>
-                  | <%= link_to 'Publish', edit_post_path(post) %>
-                 <% end %>
-                </p>
-
-            <% unless post.published %>
+        <% unless post.published %>
             <p><strong>Unpublished</strong></p>
-            <% end %>
+        <% end %>
 
-            <p><%= post.body %></p>
-            <h4> <%= l post.created_at, format: :short %> </h4>
-            <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
-        </tbody>
+    <p><%= post.body %></p>
+    <h4> <%= post.created_at.to_s(:post_date) %> </h4>
+    <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+    </li>
+
+<!--
+<div class="post" id="<%= dom_id(post) %>">
+    <h3><%= post.title %></h3>
+    <p><%= post.body %></p>
+    <h4> <%= l post.created_at, format: :short %> </h4>
+
+    <div class="nav">
+      <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div> -->

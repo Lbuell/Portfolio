@@ -13,14 +13,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @posts = Post.all
     @commentable = @post
     @comments = @commentable.comments
     @comment = Comment.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
   end
 
   # GET /posts/new
@@ -32,6 +27,10 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    authorize @post
+    respond_to do |format|
+      format.js
+    end
     if current_user != @post.author && current_user.role != "editor"
       redirect_to posts_url, alert: 'That shit aint yours!'
     end
@@ -41,8 +40,8 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-     authorize @post
-     if @post.save
+    authorize @post
+    if @post.save
       flash[:notice] = "Post Added!"
       respond_to do |format|
         format.html { redirect_to @post }
@@ -72,6 +71,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.published = true
     @post.save
+    respond_to do |format|
+      format.html { redirect_to posts_url }
+      format.js
+    end
     redirect_to posts_url, notice: 'Well done, you did it!'
   end
 
@@ -79,7 +82,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @post.destroy
-
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.js

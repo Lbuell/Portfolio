@@ -31,7 +31,7 @@ jQuery.fn.submitOnCheck = function() {
 }
 
 $(function() {
-  $('.edit_project').submitOnCheck();
+  $('.edit_post').submitOnCheck();
 });
 
 $(function() {
