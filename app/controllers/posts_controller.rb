@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    authorize @post
+    #authorize @post
   end
 
   # GET /posts/1/edit
@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     respond_to do |format|
+      format.html { redirect_to @post }
       format.js
     end
     if current_user != @post.author && current_user.role != "editor"

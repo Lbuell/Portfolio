@@ -26,6 +26,7 @@ gem 'simple_form'
 group :development, :test do
   gem "sqlite3", "1.3.8"
   gem 'pry-rails'
+  gem 'pry-plus'
 end
 
 group :doc do

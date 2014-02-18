@@ -1,6 +1,6 @@
 
    <li class="post" id="<%= dom_id(post) %>">
-    <h3><%= post.title %></h3>
+    <h3><%= link_to post.title, post %></h3>
 
     <h6>Written by <a href="#">Liam Buell</a> </h6>
 
@@ -26,14 +26,3 @@
     <h4> <%= post.created_at.to_s(:post_date) %> </h4>
     <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
     </li>
-
-<!--
-<div class="post" id="<%= dom_id(post) %>">
-    <h3><%= post.title %></h3>
-    <p><%= post.body %></p>
-    <h4> <%= l post.created_at, format: :short %> </h4>
-
-    <div class="nav">
-      <%= link_to 'Destroy', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div> -->

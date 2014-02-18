@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
     respond_to do |format|
+      format.html { redirect_to projects_url }
       format.js
     end
   end

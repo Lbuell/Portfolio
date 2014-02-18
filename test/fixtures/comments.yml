@@ -10,3 +10,10 @@ two:
   content: MyText
 
   commentable_type: MyString
+
+laurens_comment:
+  author: laurens_comment
+  author_url: hettp://lauren.example.com
+  author_email: lauren@troll.example.com
+  content: your mom
+  commentable: google_is_evil (Post)

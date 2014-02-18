@@ -47,7 +47,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: "Comment created."
     else
-      render :new
+      instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
+      render template: "#{@resource}/show"
     end
   end
 
@@ -75,10 +76,12 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 private
 
   def load_commentable
-    @resource, id = request.path.split('/')[1,2]
+    @resource, id = request.path.split('/')[2,3]
+    #binding.pry
     @commentable = @resource.singularize.classify.constantize.find(id)
   end
 
