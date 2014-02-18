@@ -1,5 +1,5 @@
   <div class="project" id="<%= dom_id(project) %>">
-    <h3><%= project.name %></h3>
+    <h3><%= link_to project.name, project %></h3>
     <p><%= project.technologies_used %></p>
     <h4> <%= project.created_at.to_s(:project_date) %> </h4>
 
