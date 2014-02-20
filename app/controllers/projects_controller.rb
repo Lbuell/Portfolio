@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    authorize @project
+    #authorize @project
     if @project.save
       flash[:notice] = "Project Added!"
       respond_to do |format|
