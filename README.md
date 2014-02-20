@@ -1,9 +1,5 @@
 # Personal Portfolio App
-<!-- If you'd like to use a logo instead uncomment this code and remove the text above this line
 
-  ![Logo](URL to logo img file goes here)
-
--->
 
 By [Liam Buell](https://github.com/Lbuell/)
 
@@ -29,7 +25,7 @@ https://https://www.dropbox.com/s/x565sx06sgnuwmb/Screenshot%20from%202014-02-12
 ### Known Issues
 
 If you discover any bugs, feel free to create an issue on GitHub fork and
-send us a pull request.
+send me a pull request.
 
 [Issues List](https://github.com/lbuell/portfolio/issues).
 
