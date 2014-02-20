@@ -21,7 +21,11 @@ gem 'quiet_assets'
 gem 'browser-timezone-rails'
 gem 'globalize', '~> 4.0.0'
 gem 'simple_form'
-
+gem 'carrierwave'
+gem 'rmagick'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 group :development, :test do
   gem "sqlite3", "1.3.8"

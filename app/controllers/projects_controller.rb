@@ -4,12 +4,13 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-
+    @uploader = Project.new.image
+    @uploader.success_action_redirect = new_project_url
   end
 
   def new
-    @project = Project.new
-    authorize @project
+     @project = Project.new(key: params[:key])
+    #authorize @project
   end
 
   def create
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
     @commentable = @project
     @comments = @commentable.comments
     @comment = Comment.new
+
   end
 
   def edit
@@ -78,7 +80,7 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:name, :technologies_used)
+    params.require(:project).permit(:name, :technologies_used, :image, :key)
   end
 
   def set_project

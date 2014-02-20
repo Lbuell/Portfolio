@@ -2,7 +2,12 @@
     <h3><%= link_to project.name, project %></h3>
     <p><%= project.technologies_used %></p>
     <h4> <%= project.created_at.to_s(:project_date) %> </h4>
+    <div class="picture">
 
+
+     <%= link_to image_tag(project.image_url(:thumb)), project if project.image? %>
+
+    </div>
     <div class="nav">
       <%= link_to 'Edit', edit_project_path(project), remote: true, id: :edit_project %> |
       <%= link_to 'Destroy', project, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>

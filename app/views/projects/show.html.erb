@@ -1,6 +1,9 @@
 <h2><%= @project.name %></h2>
 <p>Technologies used: <%= @project.technologies_used %>
 
+<div class="photo">
+ <%= link_to image_tag(@project.image.url(:thumb)), @project if @project.image? %>
+</div>
 
 <%= render "comments/comments" %>
 <% if current_user %>
