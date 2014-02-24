@@ -41,6 +41,85 @@
           </ul>
       <article>
 
+        <h3><a href="#">Sublime Text and Zsh Productivity Hacks</a></h3>
+        <h6>Written by <a href="#">Liam Buell</a> on February 23rd, 2014.</h6>
+
+        <div class="row">
+          <div class="large-6 columns">
+            <p>One thing i've struggled with as a new developer, is leveraging learning everything and at the same time mastering productivity.   It can be a hard thing to do, especially if you are in an intensive bootcamp like I am.   It can feel like learning how to run and how to walk at the same time!</p>
+          </div>
+          <div class="large-6 columns">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQMlnocmPtJ-eaOD9WxcS2stvyvANEODVHErqYSWJQRG51POBm3eA">
+          </div>
+        </div>
+
+
+        <p>The first thing you should install is Zsh.  It's a significantly better terminal than the basic one you get on linux or mac.</p>
+
+        <p>curl -L github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</p>
+
+        <p>That should work as a good basic setup for mac and linux users.   There is a ton of customization you can do with it but out of the box it will conveniently tell you what git branch you are in, you can CD in and out of dirs without using CD, and many other convenient shortcuts!</p>
+
+
+        <p>To change plugins/themes  check out https://github.com/robbyrussell/oh-my-zsh/blob/master/README.textile</p>
+
+        <h3>Sublime 2 and Plugins</h3>
+
+        <p>Sublime is my favorite text editor so far.    There are an insane ammount of plugins and choosing can be time consuming.  And then you have to learn how to use them!</p>
+
+        <p><h5>My favorites so far:<h5></p>
+
+        <p><h6>Beautify Ruby</h6> -  Simply highlight any block of ruby and it will beautify it!</p>
+
+        <p><h6>Emmet</h6> -  Emmet has a few flavors,  livestyle lets you live code css directly in your browser which is amazing.  And the other plugin lets you code huge chunks of  HTML and CSS with very short commands.  This used to be Zen Coding. Very useful! </p>
+
+        <p><h6>Sublime Linter</h6> -  Very handy for letting you know when your syntax is wrong.</p>
+
+        <p> <h6>LiveReload</h6> - Automatically reloads your browser anytime sublime saves a file. Very convenient, especially if you turn on the save on focus lost function in sublime(which you should have set!)</p>
+
+        <h6>Snippets</h6>
+
+        <p>Snippets are fantastic!   thay are a great way of storing all the chunks of code that you re-use on a regular basis.   Once they are stored you can quickly search when you are inside a new file and it will show you all the relavant snippets for that type of file.</p>
+
+        <h6>Split Screens</h6>
+        <p> Another useful productivity hack,   master this right away to limit getting lost in your files!  super easy for when you are trying to compare files or are working in multiple folders</p>
+
+        <h6>Multiple Cursors</h6>
+        <p> Probably one of if not the most attractive feature of Sublime is the multiple cursor function.  Makes editing super fast and makes replacing or changing multiple occurances of a word a piece of cake!.  It is AWESOME.   GET IT.</p>
+        <h4>General Shortcuts</h4>
+
+        <p>The number of shortcuts available to you in sublime is massive.  You really should study them and get them down immediately so you can take your productivity skills to the next level</p>
+
+        <p>Cheat Sheet: http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/keyboard_shortcuts_win.html</p>
+
+        <p>Please Let me know if you have any questions or comments and thanks for reading!</p>
+
+
+          <div class="large-6 columns">
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1VdjDaJr4UN24GKZYMCid5QMUAQFU1Pl0Loa-shbdJ2LY_8My">
+          </div>
+          <div id="comments">
+          <% @posts.each do |post| %>
+          <% post.comments.each do |comment| %>
+          <div class="comment">
+          <%= simple_format comment.content %>
+            <% end %>
+          <% end %>
+        </div>
+
+      </div>
+
+      </article>
+
+  <div class="large-9 columns" role="content">
+
+          <ul id='posts'>
+
+          </ul>
+      <article>
+          <h3><a href="#">Installing a Zurb Foundation Theme</a></h3>
+        <h6>Written by <a href="#">Liam Buell</a> on February 10th, 2014.</h6>
+<div>
 
         <div class="row">
           <div class="large-6 columns">
@@ -75,7 +154,7 @@
           <%= simple_format comment.content %>
             <% end %>
           <% end %>
-
+</div>
 
       </article>
 
@@ -85,22 +164,18 @@
 
       <article>
 
-        <h3><a href="#">Blog Post Title</a></h3>
-        <h6>Written by <a href="#">John Smith</a> on August 12, 2012.</h6>
+        <h3><a href="#">Sublime Text and Zsh Productivity Hacks</a></h3>
+        <h6>Written by <a href="#">Liam Buell</a> on February 23rd, 2014.</h6>
 
-        <div class="row">
-          <div class="large-6 columns">
-            <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa.</p>
-            <p>Boudin aliqua adipisicing rump corned beef. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
-          </div>
+
           <div class="large-6 columns">
             <%= image_tag ("8.jpg") %>
           </div>
         </div>
 
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+        <p>"We dont know what we're doing and we dont know when we will be done"  - Agile Development Zen thoughts</p>
 
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow. Nulla corned beef sunt ball tip, qui bresaola enim jowl. Capicola short ribs minim salami nulla nostrud pastrami.</p>
+        <p>Never Give up, Never Surrender!</p>
 
       </article>
 
