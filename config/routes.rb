@@ -10,8 +10,12 @@ scope ":locale" do
   end
 end
 
-
-  # The priority is based upon order of creation: first created -> highest priority.
+match 'contact' => 'contact#new', via: :get
+match 'contact' => 'contact#create', via: :post
+# #get 'contact' => 'contact#create', :as => 'contact', :via => :post
+# get "/contact" => "contact#new"
+# post "/contact" => "contact#create"
+#   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
