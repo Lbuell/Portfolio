@@ -30,6 +30,7 @@ group :development, :test do
   gem "sqlite3", "1.3.8"
   gem 'pry-rails'
   gem 'pry-plus'
+  gem 'email_spec'
 end
 
 group :doc do
