@@ -25,6 +25,12 @@ gem 'rmagick'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'rspec-rails'
+gem "berkshelf", github: "berkshelf/berkshelf"
+gem "vagrant", github: "mitchellh/vagrant", tag: "v1.4.2"
+gem 'vagrant-berkshelf', github: "berkshelf/vagrant-berkshelf"
+gem 'vagrant-omnibus', github: "schisamo/vagrant-omnibus"
+
 
 group :development, :test do
   gem "sqlite3", "1.3.8"
